@@ -5,22 +5,22 @@ let test={};
 exports.test=test;
 
 test['getCurrentPlayerInfo() should give information about current player']=function(){
-  let game=new Game('../../like.jpg','../../wow.png');
+  let game=new Game();
   let expectedOutput={
     name:"player1",
-    image:"../../like.jpg",
+    image:"/images/like.jpg",
     moves:[]
   };
   assert.deepEqual(game.getCurrentPlayerInfo(),expectedOutput);
 };
 
 test['isDraw() should tell whether the game is draw or not']=function(){
-  let game=new Game('../../like.jpg','../../wow.png');
+  let game=new Game();
   assert.ok(!game.isDraw());
 };
 
 test['insertMove() should insert value into players moves']=function(){
-  let game=new Game('../../like.jpg','../../wow.png');
+  let game=new Game();
   game.insertMove(2);
   game.insertMove(9);
   let game2=new Game('dumb.jpg','../nothing');
@@ -33,7 +33,7 @@ test['insertMove() should insert value into players moves']=function(){
 };
 
 test['getTotalMoves() should give totalMoves in the game']=function(){
-  let game=new Game('../../like.jpg','../../wow.png');
+  let game=new Game();
   game.insertMove(2);
   game.currentplayerIndex=1-game.currentplayerIndex;
   game.insertMove(9);
