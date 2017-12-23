@@ -30,8 +30,8 @@ Player.prototype.hasWon = function() {
 
 let Game = function() {
   this.players = [];
-  this.players.push(new Player("player1", '/images/like.jpg'));
-  this.players.push(new Player("player2", '/images/haha.png'));
+  this.players.push(new Player("player1", 'images/like.jpg'));
+  this.players.push(new Player("player2", 'images/haha.png'));
   this.currentplayerIndex = 0;
 };
 

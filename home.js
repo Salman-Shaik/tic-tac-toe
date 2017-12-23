@@ -1,5 +1,5 @@
 const goToGamePage=function(){
- window.location.href="main.html";
+ window.location.href="./src/main.html";
 }
 const addClickListenerOnButton=function(){
   let button=document.getElementById('start-game');
