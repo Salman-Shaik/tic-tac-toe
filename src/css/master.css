@@ -1,8 +1,6 @@
 td{
     border-collapse: collapse;
     border: 2px solid black;
-    width:150px;
-    height:150px;
     position: relative;
     background-color: darkGray;
     text-align: center;
@@ -24,8 +22,8 @@ table{
 .align_center{
 }
 img{
-  height:150px;
-  width:150px;
+  height:100%;
+  width:100%;
 }
 h2{
   display: inline-block;
@@ -33,6 +31,8 @@ h2{
 .display{
   border:0px;
   background-color: white;
+  width:300px;
+  height:150px;
 }
 button{
   background-color: rgb(15, 214, 11);
@@ -43,4 +43,9 @@ button{
   width: 200px;
   height: 60px;
   border-radius: 5px;
+}
+.cell{
+  position: relative;
+  height:150px;
+  width:150px;
 }
