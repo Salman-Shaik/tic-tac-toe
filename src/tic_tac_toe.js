@@ -4,8 +4,8 @@ const isSubset = function(set, superSet) {
   });
 }
 
-let Player = function(name, image) {
-  this.name = name;
+let Player = function(image) {
+  this.name = "";
   this.image = image;
   this.moves = [];
 }
@@ -25,16 +25,23 @@ Player.prototype.hasWon = function() {
     return isSubset(element,moves);
   });
 };
-
+Player.prototype.setPlayerName=function(name) {
+ this.name=name;
+};
 //############################
 
 let Game = function() {
   this.players = [];
-  this.players.push(new Player("player1", 'images/like.jpg'));
-  this.players.push(new Player("player2", 'images/haha.png'));
+  this.players.push(new Player('images/like.jpg'));
+  this.players.push(new Player('images/haha.png'));
   this.currentplayerIndex = 0;
 };
 
+Game.prototype.setPlayersName=function(names) {
+  names.forEach((name,index)=>{
+    this.players[index].setPlayerName(name);
+  });
+}
 Game.prototype.getCurrentPlayerInfo = function() {
   return this.players[this.currentplayerIndex];
 };
@@ -99,7 +106,24 @@ const getGameStatus = function() {
   }
   return gameStatus;
 }
-
+const enableDetailsBlock=function() {
+  document.getElementById('player1').disabled=false;
+  document.getElementById('player2').disabled=false;
+  document.getElementById('submit').disabled=false;
+}
+const disableDetailsBlock=function() {
+  document.getElementById('player1').disabled=true;
+  document.getElementById('player2').disabled=true;
+  document.getElementById('submit').disabled=true;
+}
+const takeDetails=function() {
+  let player1Name=document.getElementById('player1').value;
+  let player2Name=document.getElementById('player2').value;
+  game.setPlayersName([player1Name,player2Name]);
+  let currentPlayer = game.getCurrentPlayerInfo();
+  updateDisplay(`${currentPlayer.name}` + "'s Turn");
+  disableDetailsBlock();
+}
 const updateSelectedCell = function(pos) {
   let currentPlayer = game.getCurrentPlayerInfo();
   let cell = document.getElementById(pos);
@@ -132,12 +156,15 @@ const insertClickListenerOnTable = function() {
 }
 const insertClickListenerOnButton=function(){
   let button=document.getElementById("resetgrid");
+  let submit=document.getElementById('submit');
+  submit.onclick=takeDetails;
   button.disabled=true;
   button.onclick=resetGame;
 }
 const beginGame = function() {
   insertClickListenerOnTable();
   insertClickListenerOnButton();
+  enableDetailsBlock();
 }
 
 window.onload = beginGame;

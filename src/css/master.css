@@ -1,29 +1,33 @@
-td{
-    border-collapse: collapse;
-    border: 2px solid black;
-    position: relative;
-    background-color: darkGray;
-    text-align: center;
-    font-size: 40px;
+.mainOne{
+  width:60%;
+  height:100%;
+}
+.cell{
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  border-collapse: collapse;
+  border: 2px solid black;
+  background-color: darkGray;
 }
 table{
-  margin-top: 70px;
+  margin-top: 20px;
   align: center;
  border-collapse: collapse;
 }
 .grid{
-  margin:5% 33% 0% 33%;
   align:center;
+  padding: 6%;
   border-radius: 5px;
-  border-top: 5px solid rgb(255, 8, 104);;
+  border-top: 5px solid rgb(255, 8, 104);
   border-left: 1px solid lightGray;
   box-shadow: 7px 9px 10px darkGray;
 }
 .align_center{
 }
 img{
-  height:100%;
-  width:100%;
+  height:98%;
+  width:98%;
 }
 h2{
   display: inline-block;
@@ -48,4 +52,24 @@ button{
   position: relative;
   height:150px;
   width:150px;
+}
+.details{
+  padding: 6% 3% 8% 3%;
+  margin: 0% 22% 0% 22%;
+  border-radius: 10px;
+  border-left: 1px solid lightGray;
+  box-shadow: inset 7px 9px 10px lightGray,7px 9px 10px darkGray;
+}
+input[type="text"]{
+  width:220px;
+  border: 2px solid lightGray;
+  border-radius: 5px;
+  font-size: 23px;
+  font-family: sans-serif;
+  height:40px;
+  margin: 1%;
+}
+label{
+  font-size: 20px;
+  font-family: sans-serif;
 }
