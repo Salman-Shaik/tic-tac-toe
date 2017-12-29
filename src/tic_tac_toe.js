@@ -119,10 +119,15 @@ const disableDetailsBlock=function() {
 const takeDetails=function() {
   let player1Name=document.getElementById('player1').value;
   let player2Name=document.getElementById('player2').value;
+  if(player1Name==''||player2Name==''){
+    alert('ENTER DETAILS');
+    return;
+  }
   game.setPlayersName([player1Name,player2Name]);
   let currentPlayer = game.getCurrentPlayerInfo();
   updateDisplay(`${currentPlayer.name}` + "'s Turn");
   disableDetailsBlock();
+  insertClickListenerOnTable();
 }
 const updateSelectedCell = function(pos) {
   let currentPlayer = game.getCurrentPlayerInfo();
@@ -162,7 +167,6 @@ const insertClickListenerOnButton=function(){
   button.onclick=resetGame;
 }
 const beginGame = function() {
-  insertClickListenerOnTable();
   insertClickListenerOnButton();
   enableDetailsBlock();
 }
